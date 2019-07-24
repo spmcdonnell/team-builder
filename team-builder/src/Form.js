@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Form({ members, setMembers }) {
+function Form({ editing, editMember, addMember }) {
     const [member, setMember] = useState({ name: '', email: '', role: '' });
 
     function handleChange(e) {
@@ -9,7 +9,11 @@ function Form({ members, setMembers }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        setMembers([...members, member]);
+        if (editing) {
+            editMember(member);
+        } else {
+            addMember(member);
+        }
         setMember({ name: '', email: '', role: '' });
     }
 
