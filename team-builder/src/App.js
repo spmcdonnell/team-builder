@@ -4,13 +4,13 @@ import './App.css';
 
 import Form from './Form';
 
-const [members, setMembers] = useState([]);
-
 function App() {
+    const [members, setMembers] = useState([]);
+
     return (
         <div className="App">
             <header className="App-header">
-                <Form members={members} />
+                <Form members={members} setMembers={setMembers} />
             </header>
         </div>
     );
